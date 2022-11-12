@@ -1,23 +1,28 @@
 package com.bridgelabz;
 
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class MoodAnalyzer {
-    public static void main(String[] args) {
-        MoodAnalyzer moodAnalyser = new MoodAnalyzer();
-        String happyMood = moodAnalyser.analyseMood("I am in Happy Mood");
-        System.out.println("Mood is " + happyMood);
-        String sadMood = moodAnalyser.analyseMood("I am in Sad Mood");
-        System.out.println("Mood is " + sadMood);
+    private String message;
+    public MoodAnalyzer(String message) {
+        this.message = message;
     }
 
-   public String analyseMood(String message){
-        if(message.toLowerCase().contains("sad")){
-            return "SAD";
-        }
-        else if (message.toLowerCase().contains("happy")){
+    public static void main(String[] args) {
+        MoodAnalyzer moodAnalyser = new MoodAnalyzer(null);
+        String nullMood = moodAnalyser.analyseMood();
+        System.out.println("Mood is " + nullMood);
+    }
+
+    public String analyseMood() {
+        try {
+            if (message.contains("Sad"))
+                return "SAD";
+            else
+                return "HAPPY";
+        } catch (NullPointerException e) {
             return "HAPPY";
         }
-        return message;
     }
 }
