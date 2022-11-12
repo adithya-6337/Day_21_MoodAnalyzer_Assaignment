@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import org.testng.Assert;
+
 public class MoodAnalyzer {
     public static void main(String[] args) {
         MoodAnalyzer moodAnalyser = new MoodAnalyzer();
